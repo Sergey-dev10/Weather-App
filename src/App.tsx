@@ -1,13 +1,8 @@
 import React from 'react';
-import { Search } from './components/Search';
-import { Wrapper } from './App.styles';
+import { Weather } from './components/Weather';
 
 function App() {
-  return (
-    <Wrapper>
-      <Search />
-    </Wrapper>
-  );
+  return <Weather />;
 }
 
 export default App;

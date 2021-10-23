@@ -6,7 +6,7 @@ const initialState: InitialStateType = {
   WeatherForecast: null,
 };
 
-export const wetherSlice = createSlice({
+export const weatherSlice = createSlice({
   name: 'weather',
   initialState,
   reducers: {
@@ -17,6 +17,9 @@ export const wetherSlice = createSlice({
   },
 });
 
-export const { fetchData } = wetherSlice.actions;
-export const FETCH_DATA_SAGA = 'FETCH_DATA_SAGA';
-export const fetchDataSaga = createAction(FETCH_DATA_SAGA);
+export const { fetchData } = weatherSlice.actions;
+export const REQUEST_WEATHER = 'REQUEST_WEATHER';
+export const fetchDataWEther = createAction(REQUEST_WEATHER, (weatherData) => ({
+  payload: weatherData,
+}));
+export default weatherSlice.reducer;
