@@ -34,6 +34,6 @@ export interface WeatherForecast {
 }
 
 export interface InitialStateType {
-  WeatherCurrent: WeatherCurrent | null,
-  WeatherForecast: WeatherForecast | null,
+  weatherCurrent: WeatherCurrent | null,
+  weatherForecast: WeatherForecast | null,
 }

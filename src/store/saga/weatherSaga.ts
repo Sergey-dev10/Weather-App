@@ -1,20 +1,22 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
 import axios from 'axios';
-import { fetchDataWEther, REQUEST_WEATHER } from '../reducers/weatherSlice';
+import { fetchData, REQUEST_WEATHER } from '../reducers/weatherSlice';
 
-function* weatherWorker(city: string) {
+function* weatherWorker({ payload }: { payload: string }): any {
   const weatherCurrent = yield call(
     axios.get,
-    `api.openweathermap.org/data/2.5/weather?q=${city}&appid=5fce9fcfaffc69d976811967daa4e476`,
+    `http://api.openweathermap.org/data/2.5/weather?q=${payload}&appid=5fce9fcfaffc69d976811967daa4e476&lang=en`,
   );
   const weatherForecast = yield call(
     axios.get,
-    `api.openweathermap.org/data/2.5/forecast?q=${city}&appid=5fce9fcfaffc69d976811967daa4e476`,
+    `http://api.openweathermap.org/data/2.5/forecast?q=${payload}&appid=5fce9fcfaffc69d976811967daa4e476&lang=en`,
   );
-  const wetherData = { weatherCurrent.data, weatherForecast.data };
-  yield put(fetchDataWEther(wetherData));
+  const wetherData = { weatherCurrent, weatherForecast };
+  yield put(fetchData(wetherData));
 }
 
+const takeEveryUp: any = takeEvery;
+
 export function* weatherWatcher() {
-  yield takeEvery(REQUEST_WEATHER, weatherWorker);
+  yield takeEveryUp(REQUEST_WEATHER, weatherWorker);
 }
