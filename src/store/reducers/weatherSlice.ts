@@ -1,10 +1,10 @@
 /* eslint-disable no-param-reassign */
 import { createSlice, createAction } from '@reduxjs/toolkit';
-import { InitialStateType } from '../../types/types';
+import { InitialStateT } from '../../types/types';
 
-const initialState: InitialStateType = {
-  weatherCurrent: null,
-  weatherForecast: null,
+const initialState: InitialStateT = {
+  weatherCurr: null,
+  weatherForec: null,
 };
 
 export const weatherSlice = createSlice({
@@ -12,8 +12,8 @@ export const weatherSlice = createSlice({
   initialState,
   reducers: {
     fetchData(state, action) {
-      state.weatherCurrent = action.payload.weatherCurrent;
-      state.weatherForecast = action.payload.weatherCurrent;
+      state.weatherCurr = action.payload.weatherCurrent;
+      state.weatherForec = action.payload.weatherCurrent;
     },
   },
 });
@@ -23,4 +23,6 @@ export const REQUEST_WEATHER = 'REQUEST_WEATHER';
 export const fetchDataWeather = createAction(REQUEST_WEATHER, (city: string) => ({
   payload: city,
 }));
+export const selectCurr = ({ weather }: { weather: InitialStateT }) => weather.weatherCurr?.data;
+export const selectForec = ({ weather }: { weather: InitialStateT }) => weather.weatherForec?.data;
 export default weatherSlice.reducer;

@@ -3,7 +3,7 @@ export interface WeatherInfo {
   icon: string,
 }
 
-export interface WeatherCurrent {
+export interface WeatherCurrtData {
   main: {
     temp: number,
     feels_like: number,
@@ -23,7 +23,11 @@ export interface WeatherCurrent {
   weather: WeatherInfo[],
 }
 
-export interface WeatherForecast {
+export interface WeatherCurr {
+  data: WeatherCurrtData | null,
+}
+
+export interface WeatherForecData {
   list: [
     dt: number,
     main: {
@@ -32,8 +36,11 @@ export interface WeatherForecast {
     weather: WeatherInfo,
   ],
 }
+export interface WeatherForec {
+  data: WeatherForecData | null,
+}
 
-export interface InitialStateType {
-  weatherCurrent: WeatherCurrent | null,
-  weatherForecast: WeatherForecast | null,
+export interface InitialStateT {
+  weatherCurr: WeatherCurr | null,
+  weatherForec: WeatherForec | null,
 }
