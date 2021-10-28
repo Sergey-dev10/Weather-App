@@ -1,17 +1,19 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.div`
+export const WrapperToday = styled.div`
     display: flex;
     flex-direction: column;
     justify-contect: center;
+    margin-bottom: 2rem;
     color: #FFFFFF;
 
     .weather-today {
         display: flex;
     }
-    .curr-city {
+    .city {
         margin: 0.1rem;
-        font-size: 5rem;
+        font-size: 6rem;
+        font-weight: 550;
     }
     .temp-block {
         display: flex;

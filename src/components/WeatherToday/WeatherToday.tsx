@@ -1,7 +1,7 @@
-import React from 'react';
 import { useSelector } from 'react-redux';
-import { Wrapper } from './WeatherToday.styles';
+import { WrapperToday } from './WeatherToday.styles';
 import { selectCurr } from '../../store/reducers/weatherSlice';
+import { formatTemp } from '../../common';
 
 export const WeatherToday = (): JSX.Element => {
   const todayWeather = useSelector(selectCurr);
@@ -11,13 +11,13 @@ export const WeatherToday = (): JSX.Element => {
   const forecIcon = todayWeather?.weather[0].icon;
 
   return (
-    <Wrapper>
-      { city && <h2 className="curr-city">{city}</h2> }
+    <WrapperToday>
+      { city && <h2 className="city">{city}</h2> }
       { temp
       && (
         <div className="weather-today">
           <div className="temp-block">
-            <span className="today-temp">{Math.floor(temp)}</span>
+            <span className="today-temp">{formatTemp(temp)}</span>
             <span className="temp-sign">℃</span>
           </div>
           <div className="forecast-today">
@@ -28,6 +28,6 @@ export const WeatherToday = (): JSX.Element => {
           </div>
         </div>
       )}
-    </Wrapper>
+    </WrapperToday>
   );
 };

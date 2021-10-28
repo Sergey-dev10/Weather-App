@@ -3,16 +3,17 @@ import axios from 'axios';
 import { fetchData, REQUEST_WEATHER } from '../reducers/weatherSlice';
 
 function* weatherWorker({ payload }: { payload: string }): any {
-  const weatherCurrent = yield call(
+  const weatherCurr = yield call(
     axios.get,
     `http://api.openweathermap.org/data/2.5/weather?q=${payload}&appid=5fce9fcfaffc69d976811967daa4e476&units=metric&lang=en`,
   );
-  const weatherForecast = yield call(
+  const { lat, lon } = yield weatherCurr.data.coord;
+  const weatherForec = yield call(
     axios.get,
-    `http://api.openweathermap.org/data/2.5/forecast?q=${payload}&appid=5fce9fcfaffc69d976811967daa4e476&units=metric&lang=en`,
+    `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=5fce9fcfaffc69d976811967daa4e476&units=metric&exclude=current&lang=en`,
   );
-  const wetherData = { weatherCurrent, weatherForecast };
-  yield put(fetchData(wetherData));
+  const weatherData = yield { weatherCurr, weatherForec };
+  yield put(fetchData(weatherData));
 }
 
 const takeEveryUp: any = takeEvery;

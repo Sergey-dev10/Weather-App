@@ -12,8 +12,8 @@ export const weatherSlice = createSlice({
   initialState,
   reducers: {
     fetchData(state, action) {
-      state.weatherCurr = action.payload.weatherCurrent;
-      state.weatherForec = action.payload.weatherCurrent;
+      state.weatherCurr = action.payload.weatherCurr;
+      state.weatherForec = action.payload.weatherForec;
     },
   },
 });

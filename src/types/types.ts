@@ -27,15 +27,18 @@ export interface WeatherCurr {
   data: WeatherCurrtData | null,
 }
 
-export interface WeatherForecData {
-  list: [
-    dt: number,
-    main: {
-      temp: number,
-    },
-    weather: WeatherInfo,
-  ],
+interface ForecDay {
+  dt: number,
+  temp: {
+    eve: number,
+  },
+  weather: WeatherInfo[],
 }
+
+export interface WeatherForecData {
+  daily: ForecDay[],
+}
+
 export interface WeatherForec {
   data: WeatherForecData | null,
 }
