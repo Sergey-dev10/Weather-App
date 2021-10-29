@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import { WrapperToday } from './WeatherToday.styles';
 import { selectCurr } from '../../store/reducers/weatherSlice';
-import { formatTemp } from '../../common';
+import { formatTemp } from '../../common/utilits';
 
 export const WeatherToday = (): JSX.Element => {
   const todayWeather = useSelector(selectCurr);

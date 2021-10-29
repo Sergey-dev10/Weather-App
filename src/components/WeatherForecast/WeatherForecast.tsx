@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
 import { WrapperForecast } from './WeatherForecst.styles';
 import { selectForec } from '../../store/reducers/weatherSlice';
-import { getDayOfWeek, formatTemp, getImgUrl } from '../../common';
+import { getDayOfWeek, formatTemp, getImgUrl } from '../../common/utilits';
 
 export const WeatherForecast = (): JSX.Element => {
   const weekWeather = useSelector(selectForec)?.daily.slice(1, 6);
