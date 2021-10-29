@@ -47,4 +47,5 @@ export interface InitialStateT {
   weatherCurr: WeatherCurr | null,
   weatherForec: WeatherForec | null,
   isFail: boolean,
+  isLoad: boolean,
 }
