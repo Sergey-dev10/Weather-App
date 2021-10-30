@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { SearchInput, SearchButton, SerachWrapper } from './Search.styles';
+import { SearchInput, SearchButton, SerachWrapper } from './WeatherSearch.styles';
 import { fetchDataWeather } from '../../store/reducers/weatherSlice';
 
-export const Search = (): JSX.Element => {
+export const WeatherSearch = (): JSX.Element => {
   const [city, setCity] = useState('');
   const dispatch = useDispatch();
 
@@ -13,8 +13,10 @@ export const Search = (): JSX.Element => {
   };
   const onSearch = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
-    dispatch(fetchDataWeather(city));
-    setCity('');
+    if (city) {
+      dispatch(fetchDataWeather(city));
+      setCity('');
+    }
   };
   return (
     <SerachWrapper onSubmit={onSearch}>

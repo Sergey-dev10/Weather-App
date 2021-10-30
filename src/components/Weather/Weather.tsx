@@ -1,6 +1,6 @@
 /* eslint-disable no-nested-ternary */
 import { useSelector } from 'react-redux';
-import { Search } from '../Search';
+import { WeatherSearch } from '../WeatherSearch';
 import { WeatherToday } from '../WeatherToday/WeatherToday';
 import { WeatherWrapper } from './Weather.styles';
 import { WeatherForecast } from '../WeatherForecast/WeatherForecast';
@@ -14,7 +14,7 @@ export const Weather = () => {
 
   return (
     <WeatherWrapper>
-      <Search />
+      <WeatherSearch />
       {/* { isLoad && <WeatherLoader />} */}
       { isFail
         ? <WeatherFail />
