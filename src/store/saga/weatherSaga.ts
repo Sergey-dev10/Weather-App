@@ -10,7 +10,7 @@ function* weatherWorker({ payload }: { payload: string }): any {
     yield put(makeLoading());
     const weatherCurr = yield call(
       axios.get,
-      `http://api.openweathermap.org/data/2.5/weather?q=${payload}&appid=5fce9fcfaffc69d976811967daa4e476&units=metric&lang=en`,
+      `https://api.openweathermap.org/data/2.5/weather?q=${payload}&appid=5fce9fcfaffc69d976811967daa4e476&units=metric&lang=en`,
     );
     const { lat, lon } = yield weatherCurr.data.coord;
     const weatherForec = yield call(
