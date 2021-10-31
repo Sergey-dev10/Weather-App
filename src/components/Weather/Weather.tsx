@@ -15,7 +15,6 @@ export const Weather = () => {
   return (
     <WeatherWrapper>
       <WeatherSearch />
-      {/* { isLoad && <WeatherLoader />} */}
       { isFail
         ? <WeatherFail />
         : isLoad

@@ -9,8 +9,8 @@ export const WeatherWrapper = styled.div`
 
     @media ${device.mobileS} { 
         width: 100%;
-    }
+      }
     @media ${device.mobileL} { 
         width: 100%;
-    }
+      }
 `;

@@ -20,7 +20,7 @@ export const WeatherSearch = (): JSX.Element => {
   };
   return (
     <SerachWrapper onSubmit={onSearch}>
-      <SearchInput onChange={onChangeInput} type="text" value={city} />
+      <SearchInput onChange={onChangeInput} type="text" placeholder="Enter City" value={city} />
       <SearchButton>Search</SearchButton>
     </SerachWrapper>
   );

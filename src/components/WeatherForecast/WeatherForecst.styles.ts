@@ -23,7 +23,7 @@ export const WrapperForecast = styled.div`
         flex-direction: column;
     }
 
-    @media ${device.mobileL} { 
+    @media ${device.tablet} { 
         flex-wrap: wrap;
         justify-content: center;
     }

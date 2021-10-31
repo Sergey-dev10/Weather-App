@@ -11,6 +11,9 @@ export const WrapperToday = styled.div`
     .weather-today {
         display: flex;
         margin-bottom: 2rem;
+        @media ${device.mobileL} { 
+            justify-content: space-between;
+        }
     }
     .city {
         margin: 0.1rem;
@@ -28,21 +31,15 @@ export const WrapperToday = styled.div`
     .today-temp {
         font-size: 17rem;
 
-        @media ${device.mobileS} { 
-            font-size: 10rem;
-        }
         @media ${device.mobileL} { 
-            font-size: 14rem;
+            font-size: 10rem;
         }
     }
     .temp-sign {
         font-size: 10rem;
 
-        @media ${device.mobileS} { 
-            font-size: 5rem;
-        }
         @media ${device.mobileL} { 
-            font-size: 7rem;
+            font-size: 5rem;
         }
     }
     .forecast-today {

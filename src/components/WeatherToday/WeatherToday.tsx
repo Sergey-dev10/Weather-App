@@ -18,24 +18,27 @@ export const WeatherToday = (): JSX.Element => {
       { city && <h2 className="city">{city}</h2> }
       { temp
       && (
-        <div className="weather-today">
-          <div className="temp-block">
-            <span className="today-temp">{formatValue(temp)}</span>
-            <span className="temp-sign">℃</span>
-          </div>
-          <div className="forecast-today">
-            <div className="forecast-icon">
-              <img src={`http://openweathermap.org/img/wn/${forecIcon}@2x.png`} alt="forecast icon" />
+        <>
+          <div className="weather-today">
+            <div className="temp-block">
+              <span className="today-temp">{formatValue(temp)}</span>
+              <span className="temp-sign">℃</span>
             </div>
-            <p className="forecast-title">{forecTitle}</p>
+            <div className="forecast-today">
+              <div className="forecast-icon">
+                <img src={`http://openweathermap.org/img/wn/${forecIcon}@2x.png`} alt="forecast icon" />
+              </div>
+              <p className="forecast-title">{forecTitle}</p>
+            </div>
           </div>
-        </div>
+          <div className="weather-details">
+            <p>{`Feels like: ${formatValue(feelsLike)} °C`}</p>
+            <p>{`Wind: ${formatValue(wind)} m/s`}</p>
+            <p>{`Humidity: ${formatValue(humidity)}%`}</p>
+          </div>
+        </>
       )}
-      <div className="weather-details">
-        <p>{`Feels like: ${formatValue(feelsLike)} °C`}</p>
-        <p>{`Wind: ${formatValue(wind)} m/s`}</p>
-        <p>{`Humidity: ${formatValue(humidity)}%`}</p>
-      </div>
+
     </WrapperToday>
   );
 };
