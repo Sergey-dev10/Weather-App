@@ -1,5 +1,5 @@
 /* eslint-disable no-param-reassign */
-import { createSlice, createAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import { InitialStateT } from '../../types/types';
 
 const initialState: InitialStateT = {
@@ -30,10 +30,6 @@ export const weatherSlice = createSlice({
 });
 
 export const { fetchData, maikeFail, makeLoading } = weatherSlice.actions;
-export const REQUEST_WEATHER = 'REQUEST_WEATHER';
-export const fetchDataWeather = createAction(REQUEST_WEATHER, (city: string) => ({
-  payload: city,
-}));
 export const selectCurr = ({ weather }: { weather: InitialStateT }) => weather.weatherCurr?.data;
 export const selectForec = ({ weather }: { weather: InitialStateT }) => weather.weatherForec?.data;
 export const selectIsFail = ({ weather }: { weather: InitialStateT }) => weather.isFail;

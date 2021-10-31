@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { SearchInput, SearchButton, SerachWrapper } from './WeatherSearch.styles';
-import { fetchDataWeather } from '../../store/reducers/weatherSlice';
+import { fetchDataWeather } from '../../store/reducers/actions';
 
 export const WeatherSearch = (): JSX.Element => {
   const [city, setCity] = useState('');

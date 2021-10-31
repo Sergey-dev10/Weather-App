@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { device } from '../../common/devises';
 
 export const WrapperForecast = styled.div`
     display: flex;
@@ -7,6 +8,7 @@ export const WrapperForecast = styled.div`
         display: flex;
         flex-direction: column;
         align-items: center;
+        width: 9rem;
         margin: 0 15px 1vh;
         padding: 15px;
         background-color: #2b457b;
@@ -16,5 +18,13 @@ export const WrapperForecast = styled.div`
     .forecast-week-icon img{
         width: 7.7rem;
         height: 7.7rem;
+    }
+    @media ${device.mobileS} { 
+        flex-direction: column;
+    }
+
+    @media ${device.mobileL} { 
+        flex-wrap: wrap;
+        justify-content: center;
     }
 `;

@@ -1,8 +1,9 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
 import axios from 'axios';
 import {
-  fetchData, maikeFail, makeLoading, REQUEST_WEATHER,
+  fetchData, maikeFail, makeLoading,
 } from '../reducers/weatherSlice';
+import { REQUEST_WEATHER } from '../reducers/actions';
 
 function* weatherWorker({ payload }: { payload: string }): any {
   try {

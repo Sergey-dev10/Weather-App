@@ -7,7 +7,6 @@ export interface WeatherCurrtData {
   main: {
     temp: number,
     feels_like: number,
-    pressure: number,
     humidity: number,
   };
   sys: {
