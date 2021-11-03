@@ -1,9 +1,9 @@
 import { useSelector } from 'react-redux';
-import { WrapperToday } from './WeatherToday.styles';
+import { WrapperToday } from './Today.styles';
 import { selectCurr } from '../../store/reducers/weatherSlice';
-import { formatValue } from '../../common/utilits';
+import { formatWeatherData } from '../../utils/formatWeatherData';
 
-export const WeatherToday = (): JSX.Element => {
+export const Today = (): JSX.Element => {
   const todayWeather = useSelector(selectCurr);
   const city = todayWeather?.name;
   const temp = todayWeather?.main.temp;
@@ -21,7 +21,7 @@ export const WeatherToday = (): JSX.Element => {
         <>
           <div className="weather-today">
             <div className="temp-block">
-              <span className="today-temp">{formatValue(temp)}</span>
+              <span className="today-temp">{formatWeatherData(temp)}</span>
               <span className="temp-sign">℃</span>
             </div>
             <div className="forecast-today">
@@ -32,9 +32,9 @@ export const WeatherToday = (): JSX.Element => {
             </div>
           </div>
           <div className="weather-details">
-            <p>{`Feels like: ${formatValue(feelsLike)} °C`}</p>
-            <p>{`Wind: ${formatValue(wind)} m/s`}</p>
-            <p>{`Humidity: ${formatValue(humidity)}%`}</p>
+            <p>{`Feels like: ${formatWeatherData(feelsLike)} °C`}</p>
+            <p>{`Wind: ${formatWeatherData(wind)} m/s`}</p>
+            <p>{`Humidity: ${formatWeatherData(humidity)}%`}</p>
           </div>
         </>
       )}

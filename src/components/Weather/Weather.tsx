@@ -1,10 +1,10 @@
 /* eslint-disable no-nested-ternary */
 import { useSelector } from 'react-redux';
-import { WeatherSearch } from '../WeatherSearch';
-import { WeatherToday } from '../WeatherToday/WeatherToday';
+import { Search } from '../Search';
+import { Today } from '../Today';
 import { WeatherWrapper } from './Weather.styles';
-import { WeatherForecast } from '../WeatherForecast/WeatherForecast';
-import { WeatherFail } from '../WeatherFail';
+import { Forecast } from '../Forecast/Forecast';
+import { Fail } from '../Fail';
 import { WeatherLoader } from '../WeatherLoader';
 import { selectIsFail, selectIsLoad } from '../../store/reducers/weatherSlice';
 
@@ -14,15 +14,15 @@ export const Weather = () => {
 
   return (
     <WeatherWrapper>
-      <WeatherSearch />
+      <Search />
       { isFail
-        ? <WeatherFail />
+        ? <Fail />
         : isLoad
           ? <WeatherLoader />
           : (
             <>
-              <WeatherToday />
-              <WeatherForecast />
+              <Today />
+              <Forecast />
             </>
           )}
     </WeatherWrapper>
